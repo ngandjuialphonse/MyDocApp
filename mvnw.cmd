@@ -16,7 +16,7 @@
 @REM specific language governing permissions and limitations
 @REM under the License.
 @REM ----------------------------------------------------------------------------
-
+#Depracated
 @REM ----------------------------------------------------------------------------
 @REM Maven2 Start Up Batch script
 @REM
