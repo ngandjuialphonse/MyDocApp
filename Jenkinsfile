@@ -1,3 +1,4 @@
+// Pipeline
 pipeline {
     triggers {
   pollSCM('* * * * *')
@@ -70,7 +71,7 @@ environment {
             }
         } 
 
-        // Project Helm Chart push as tgz file
+        // Project Helm Chart push as tgz file to deployment
         stage("pushing the Backend helm charts to nexus"){
             steps{
                 script{
@@ -79,10 +80,13 @@ environment {
                             POM_VERSION = "${mavenPom.version}"
                             sh "echo ${POM_VERSION}"
                             sh "tar -czvf  app-${POM_VERSION}.tgz app/"
-                            sh "curl -u jenkins-user:$docker_pass http://139.177.192.139:8081/repository/geolocation/ --upload-file app-${POM_VERSION}.tgz -v"  
+                            sh "curl -u jenkins-user:$docker_pass https://alphodine.com/
+                            --upload-file app-${POM_VERSION}.tgz -v"  
                     }
                 } 
             }
         }     	    
     }
 }
+
+
